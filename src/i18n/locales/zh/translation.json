@@ -105,7 +105,7 @@
       "bestFor": "品牌首页 CTA、活动落地页、登录页主按钮、高端产品发布入口。",
       "body": "适合生成丝滑的品牌 CTA、登录页按钮或高端活动入口。",
       "ingredients": "暗色玻璃底座、conic-gradient 极光边框、内部 shimmer、高光阴影、悬浮抬升、reduced-motion 兜底。",
-      "prompt": "Build a premium liquid aurora button using React + TypeScript + Tailwind CSS. The button should have a dark glass base, animated conic-gradient aurora border, slow internal shimmer, soft bloom shadow, and a subtle magnetic hover lift. Include accessible focus states, reduced-motion fallback, and responsive sizing. Use only CSS animations, no animation libraries.",
+      "prompt": "Build a premium liquid aurora button using React + TypeScript + Tailwind CSS. Use a rounded button wrapper with a ::before pseudo-element for an animated conic-gradient border that rotates through teal, blue, pink, and orange. Place a dark translucent glass inner span above the border, add a slow diagonal shimmer layer that travels across the label, and give the button a soft cyan bloom shadow. On hover and focus-visible, slightly lift and scale the button, increase saturation and glow, and show a clear focus outline. Keep sizing responsive, preserve strong contrast, and add a prefers-reduced-motion fallback that disables the conic spin and shimmer animations. Use CSS-only animations, no animation libraries.",
       "tag": "CSS Animation",
       "title": "极光液态按钮"
     },
@@ -114,12 +114,21 @@
       "bestFor": "AI 产品功能展示、SaaS 首页模块、交互式导航、产品能力地图。",
       "body": "适合展示 AI 工具、SaaS 功能模块或创意导航交互。",
       "ingredients": "中心产品卡、四个轨道功能芯片、hover 暂停、选中态高亮、描述区淡入滑动、键盘可访问按钮。",
-      "prompt": "Create an interactive orbital feature selector in React + TypeScript + Tailwind CSS. Show a central product card with four orbiting feature chips. Hovering a chip should pause the orbit, highlight the selected feature, and update the central description with a smooth fade/slide transition. Use lucide-react icons, keyboard-accessible buttons, and a polished responsive layout.",
+      "prompt": "Create an interactive orbital feature selector in React + TypeScript + Tailwind CSS. Define four feature objects with label, title, and body copy, then track the selected feature in React state. Render a central glassy product card and four orbiting feature chips as keyboard-accessible buttons. Hovering or focusing a chip should pause the orbit animation with animation-play-state, set it as the active feature, highlight it with a warm accent ring, and update the central title/body copy. Use lucide-react icons, visible focus states, smooth hover transitions, responsive spacing, and a prefers-reduced-motion fallback that disables orbital and chip float animations.",
       "tag": "UI Interaction",
       "title": "轨道式功能选择器"
+    },
+    "glass": {
+      "acceptance": "卡片必须有真实玻璃层次；鼠标移动会驱动局部聚光和 3D 倾斜；hover 有边缘增亮与按钮抬升；移动端不裁切内容。",
+      "bestFor": "高级订阅弹窗、AI 工具升级提示、金融科技确认弹窗、设计系统中的 premium modal。",
+      "body": "适合生成带磨砂、辉光、鼠标聚光、3D 倾斜和扫光反馈的高级弹窗卡片。",
+      "ingredients": "深色渐变舞台、指针跟随聚光、漂浮光斑、backdrop-blur 玻璃面板、发光描边、斜向扫光、3D 倾斜、按钮抬升。",
+      "prompt": "Build a premium glassmorphism modal card using React + TypeScript + Tailwind CSS. Create a dark cinematic stage with drifting blurred color orbs, a frosted glass modal panel, luminous border highlights, animated diagonal sheen, and clear primary/secondary actions. Add pointer-driven interaction: attach onPointerMove to the preview container, calculate the cursor position as percentages within the container, and write CSS variables --glass-x, --glass-y, --glass-rx, and --glass-ry. Use --glass-x and --glass-y in radial-gradient layers to create a cursor-following spotlight and refracted edge highlight. Use rotateX(var(--glass-rx)) rotateY(var(--glass-ry)) on the glass panel for subtle 3D tilt, resetting to center on pointer leave. On hover, brighten the border, increase the glow shadow, lift the icon/chips/buttons with translateZ or translateY, and keep all decorative light layers pointer-events: none so controls remain interactive. Include accessible buttons, strong contrast, responsive mobile behavior, and a prefers-reduced-motion fallback that disables floating, sheen, and orb animations.",
+      "tag": "CSS Animation",
+      "title": "高级质感玻璃弹窗卡片"
     }
   },
-  "showcaseBody": "这里展示两个可直接复制的提示词案例：一个偏 CSS 丝滑动画，一个偏 UI 交互。每张卡都给出真实视觉样式和完整提示词。",
+  "showcaseBody": "这里展示三个可直接复制的提示词案例：两个偏 CSS 丝滑动画，一个偏 UI 交互。每张卡都给出真实视觉样式和完整提示词。",
   "showcaseKicker": "Case Showcase",
   "showcaseTitle": "优秀案例不只看文字，也要看它生成什么样的体验。",
   "submitCase": "提交你的案例",

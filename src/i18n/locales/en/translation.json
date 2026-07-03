@@ -105,7 +105,7 @@
       "bestFor": "Brand homepage CTAs, campaign landing pages, sign-in primary actions, and premium product launch entrances.",
       "body": "Best for premium CTAs, launch pages, sign-in flows, or event entrances.",
       "ingredients": "Dark glass base, conic-gradient aurora border, internal shimmer, bloom shadow, hover lift, and reduced-motion fallback.",
-      "prompt": "Build a premium liquid aurora button using React + TypeScript + Tailwind CSS. The button should have a dark glass base, animated conic-gradient aurora border, slow internal shimmer, soft bloom shadow, and a subtle magnetic hover lift. Include accessible focus states, reduced-motion fallback, and responsive sizing. Use only CSS animations, no animation libraries.",
+      "prompt": "Build a premium liquid aurora button using React + TypeScript + Tailwind CSS. Use a rounded button wrapper with a ::before pseudo-element for an animated conic-gradient border that rotates through teal, blue, pink, and orange. Place a dark translucent glass inner span above the border, add a slow diagonal shimmer layer that travels across the label, and give the button a soft cyan bloom shadow. On hover and focus-visible, slightly lift and scale the button, increase saturation and glow, and show a clear focus outline. Keep sizing responsive, preserve strong contrast, and add a prefers-reduced-motion fallback that disables the conic spin and shimmer animations. Use CSS-only animations, no animation libraries.",
       "tag": "CSS Animation",
       "title": "Liquid Aurora Button"
     },
@@ -114,12 +114,21 @@
       "bestFor": "AI product feature tours, SaaS homepage modules, interactive navigation, and product capability maps.",
       "body": "Best for AI tools, SaaS feature modules, or memorable creative navigation.",
       "ingredients": "Central product card, four orbiting feature chips, hover pause, selected highlight, fade/slide copy updates, and keyboard-accessible buttons.",
-      "prompt": "Create an interactive orbital feature selector in React + TypeScript + Tailwind CSS. Show a central product card with four orbiting feature chips. Hovering a chip should pause the orbit, highlight the selected feature, and update the central description with a smooth fade/slide transition. Use lucide-react icons, keyboard-accessible buttons, and a polished responsive layout.",
+      "prompt": "Create an interactive orbital feature selector in React + TypeScript + Tailwind CSS. Define four feature objects with label, title, and body copy, then track the selected feature in React state. Render a central glassy product card and four orbiting feature chips as keyboard-accessible buttons. Hovering or focusing a chip should pause the orbit animation with animation-play-state, set it as the active feature, highlight it with a warm accent ring, and update the central title/body copy. Use lucide-react icons, visible focus states, smooth hover transitions, responsive spacing, and a prefers-reduced-motion fallback that disables orbital and chip float animations.",
       "tag": "UI Interaction",
       "title": "Orbital Feature Selector"
+    },
+    "glass": {
+      "acceptance": "The card must show convincing glass depth; pointer movement drives local spotlight and 3D tilt; hover brightens the edge and lifts controls; mobile screens do not crop content.",
+      "bestFor": "Premium subscription modals, AI tool upgrade prompts, fintech confirmations, and premium modal patterns in design systems.",
+      "body": "Best for frosted, luminous, high-end modal cards with pointer spotlight, 3D tilt, and sheen feedback.",
+      "ingredients": "Dark gradient stage, pointer-following spotlight, drifting color orbs, backdrop-blur glass panel, luminous border, diagonal sheen, 3D tilt, and lifted actions.",
+      "prompt": "Build a premium glassmorphism modal card using React + TypeScript + Tailwind CSS. Create a dark cinematic stage with drifting blurred color orbs, a frosted glass modal panel, luminous border highlights, animated diagonal sheen, and clear primary/secondary actions. Add pointer-driven interaction: attach onPointerMove to the preview container, calculate the cursor position as percentages within the container, and write CSS variables --glass-x, --glass-y, --glass-rx, and --glass-ry. Use --glass-x and --glass-y in radial-gradient layers to create a cursor-following spotlight and refracted edge highlight. Use rotateX(var(--glass-rx)) rotateY(var(--glass-ry)) on the glass panel for subtle 3D tilt, resetting to center on pointer leave. On hover, brighten the border, increase the glow shadow, lift the icon/chips/buttons with translateZ or translateY, and keep all decorative light layers pointer-events: none so controls remain interactive. Include accessible buttons, strong contrast, responsive mobile behavior, and a prefers-reduced-motion fallback that disables floating, sheen, and orb animations.",
+      "tag": "CSS Animation",
+      "title": "Premium Glass Modal Card"
     }
   },
-  "showcaseBody": "Here are two copy-ready prompt cases: one for silky CSS animation, and one for UI interaction. Each card includes a concrete visual treatment and the full prompt.",
+  "showcaseBody": "Here are three copy-ready prompt cases: two for silky CSS animation, and one for UI interaction. Each card includes a concrete visual treatment and the full prompt.",
   "showcaseKicker": "Case Showcase",
   "showcaseTitle": "Excellent cases should show the experience, not just the text.",
   "submitCase": "Submit Your Case",

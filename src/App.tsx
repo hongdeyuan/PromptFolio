@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type CSSProperties, type PointerEvent } from 'react';
 import { ArrowUpRight, BadgeCheck, BookOpenText, Check, Clipboard, Gem, Globe2, Layers3, MousePointer2, Orbit, Sparkles, WandSparkles } from 'lucide-react';
 import type { TFunction } from 'i18next';
 import { useTranslation } from 'react-i18next';
@@ -29,12 +29,19 @@ const metrics = [
 const showcaseCases = [
   { id: 'aurora', icon: WandSparkles, promptKey: 'showcase.aurora.prompt' },
   { id: 'orbit', icon: Orbit, promptKey: 'showcase.orbit.prompt' },
+  { id: 'glass', icon: Gem, promptKey: 'showcase.glass.prompt' },
 ] as const;
 const libraryCaseKeys = ['cases.commerce', 'cases.saas', 'cases.dashboard', 'cases.brand'] as const;
 const methodPrinciples = [
   { icon: Layers3, titleKey: 'methodPage.principles.structure', textKey: 'methodPage.principles.structureText' },
   { icon: MousePointer2, titleKey: 'methodPage.principles.mechanic', textKey: 'methodPage.principles.mechanicText' },
   { icon: BadgeCheck, titleKey: 'methodPage.principles.acceptance', textKey: 'methodPage.principles.acceptanceText' },
+] as const;
+const orbitFeatures = [
+  { label: 'Plan', title: 'Brief Builder', body: 'Turn scattered goals into a clear implementation brief.' },
+  { label: 'Write', title: 'Prompt Studio', body: 'Compose constraints, states, and acceptance criteria together.' },
+  { label: 'Ship', title: 'Launch Check', body: 'Validate behavior, accessibility, and responsive polish.' },
+  { label: 'Learn', title: 'Case Memory', body: 'Extract reusable patterns from the result after launch.' },
 ] as const;
 
 type ShowcaseCaseId = (typeof showcaseCases)[number]['id'];
@@ -176,7 +183,7 @@ function OverviewPage({ t }: { t: TFunction }) {
 
       <section className="mt-20 grid gap-5 md:grid-cols-3">
         {[
-          ['02', 'overview.stats.cases'],
+          ['03', 'overview.stats.cases'],
           ['05', 'overview.stats.criteria'],
           ['100%', 'overview.stats.copyReady'],
         ].map(([value, label]) => (
@@ -257,7 +264,7 @@ function CaseCard({ copiedCase, copyPrompt, item, t }: { copiedCase: string | nu
 
   return (
     <article className="overflow-hidden rounded-[2rem] border border-[#191611]/10 bg-[#f3efe6] shadow-[0_28px_80px_rgba(25,22,17,0.12)]">
-      <div className={`relative min-h-[320px] overflow-hidden p-6 ${item.id === 'aurora' ? 'bg-[#080914]' : 'bg-[#e8dcc8]'}`}>
+      <div className={`relative min-h-[320px] overflow-hidden p-6 ${item.id === 'orbit' ? 'bg-[#e8dcc8]' : 'bg-[#080914]'}`}>
         <CasePreview caseId={item.id} />
       </div>
       <div className="p-6">
@@ -334,6 +341,30 @@ function LibraryPage({ t }: { t: TFunction }) {
 }
 
 function CasePreview({ caseId, large = false }: { caseId: ShowcaseCaseId; large?: boolean }) {
+  const [pointer, setPointer] = useState({ x: 50, y: 42, rx: 0, ry: 0 });
+  const [activeOrbit, setActiveOrbit] = useState(0);
+  const glassStyle = {
+    '--glass-x': `${pointer.x}%`,
+    '--glass-y': `${pointer.y}%`,
+    '--glass-rx': `${pointer.rx}deg`,
+    '--glass-ry': `${pointer.ry}deg`,
+  } as CSSProperties;
+
+  const handleGlassPointerMove = (event: PointerEvent<HTMLDivElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+    setPointer({
+      x,
+      y,
+      rx: (50 - y) / 8,
+      ry: (x - 50) / 8,
+    });
+  };
+
+  const resetGlassPointer = () => setPointer({ x: 50, y: 42, rx: 0, ry: 0 });
+
   if (caseId === 'aurora') {
     return (
       <div className={`${large ? 'min-h-[420px]' : 'min-h-[268px]'} grid place-items-center rounded-[1.5rem] bg-[radial-gradient(circle_at_50%_10%,rgba(116,232,255,0.28),transparent_34%),radial-gradient(circle_at_20%_90%,rgba(255,112,180,0.25),transparent_36%),#0b0f1d]`}>
@@ -348,18 +379,73 @@ function CasePreview({ caseId, large = false }: { caseId: ShowcaseCaseId; large?
     );
   }
 
+  if (caseId === 'glass') {
+    return (
+      <div
+        className={`${large ? 'min-h-[420px]' : 'min-h-[268px]'} glass-stage group relative grid place-items-center overflow-hidden rounded-[1.5rem] bg-[radial-gradient(circle_at_24%_18%,rgba(153,246,228,0.34),transparent_30%),radial-gradient(circle_at_78%_76%,rgba(251,146,60,0.28),transparent_34%),linear-gradient(135deg,#07111f,#141018_48%,#080914)] p-6`}
+        onPointerLeave={resetGlassPointer}
+        onPointerMove={handleGlassPointerMove}
+        style={glassStyle}
+      >
+        <div className="glass-cursor-glow absolute inset-0" />
+        <div className="glass-orb glass-orb-a absolute h-44 w-44 rounded-full bg-[#67e8f9]/25 blur-2xl" />
+        <div className="glass-orb glass-orb-b absolute h-52 w-52 rounded-full bg-[#fb7185]/20 blur-2xl" />
+        <div className="glass-card-float relative w-full max-w-[22rem]">
+          <div className="glass-modal-card relative overflow-hidden rounded-[2rem] border border-white/18 bg-white/[0.11] p-5 text-white shadow-[0_28px_100px_rgba(0,0,0,0.38)] backdrop-blur-2xl">
+            <div className="glass-refraction absolute inset-0" />
+            <div className="glass-sweep absolute inset-0" />
+            <div className="relative flex items-start justify-between gap-4">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.24em] text-cyan-100/70">Glass Modal</p>
+                <h3 className="mt-3 text-3xl font-extrabold leading-none tracking-[-0.06em]">Confirm Upgrade</h3>
+              </div>
+              <span className="glass-icon grid h-11 w-11 place-items-center rounded-2xl border border-white/15 bg-white/12 shadow-inner">
+                <Gem size={20} />
+              </span>
+            </div>
+            <p className="relative mt-4 text-sm leading-6 text-white/68">Move the cursor to bend light across frosted depth and luminous edges.</p>
+            <div className="relative mt-6 grid grid-cols-3 gap-2">
+              {['Tilt', 'Glow', 'Sheen'].map((label) => (
+                <span className="glass-chip rounded-2xl border border-white/10 bg-white/10 px-3 py-2 text-center text-[11px] font-bold uppercase tracking-[0.14em] text-white/72" key={label}>{label}</span>
+              ))}
+            </div>
+            <div className="relative mt-6 flex gap-3">
+              <button className="glass-primary-action flex-1 rounded-full bg-white px-4 py-3 text-sm font-extrabold text-[#10131c] shadow-[0_12px_40px_rgba(255,255,255,0.16)]" type="button">Activate</button>
+              <button className="glass-secondary-action rounded-full border border-white/15 bg-white/10 px-4 py-3 text-sm font-bold text-white/75" type="button">Later</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const activeFeature = orbitFeatures[activeOrbit];
+
   return (
-    <div className={`${large ? 'min-h-[420px]' : 'min-h-[268px]'} relative grid place-items-center rounded-[1.5rem] bg-[radial-gradient(circle_at_center,#fff8e8,transparent_34%),linear-gradient(135deg,#d7c3a0,#f7edda)]`}>
+    <div className={`${large ? 'min-h-[420px]' : 'min-h-[268px]'} group/orbit relative grid place-items-center rounded-[1.5rem] bg-[radial-gradient(circle_at_center,#fff8e8,transparent_34%),linear-gradient(135deg,#d7c3a0,#f7edda)]`}>
       <div className="orbit-ring absolute h-56 w-56 rounded-full border border-[#244838]/20" />
-      {['Plan', 'Write', 'Ship', 'Learn'].map((label, index) => (
-        <span className={`orbit-chip orbit-chip-${index + 1} absolute rounded-full bg-[#244838] px-3 py-2 text-xs font-bold text-[#f3efe6] shadow-xl`} key={label}>
-          {label}
-        </span>
-      ))}
-      <div className="relative z-10 w-48 rounded-[1.5rem] border border-white/70 bg-white/70 p-5 text-center shadow-2xl backdrop-blur">
+      {orbitFeatures.map((feature, index) => {
+        const isActive = activeOrbit === index;
+
+        return (
+          <button
+            aria-pressed={isActive}
+            className={`orbit-chip orbit-chip-${index + 1} absolute rounded-full px-3 py-2 text-xs font-bold shadow-xl transition ${isActive ? 'bg-[#e4632b] text-white ring-4 ring-white/70' : 'bg-[#244838] text-[#f3efe6] hover:bg-[#315d49]'}`}
+            key={feature.label}
+            onClick={() => setActiveOrbit(index)}
+            onFocus={() => setActiveOrbit(index)}
+            onMouseEnter={() => setActiveOrbit(index)}
+            onPointerEnter={() => setActiveOrbit(index)}
+            type="button"
+          >
+            {feature.label}
+          </button>
+        );
+      })}
+      <div className="relative z-10 w-56 rounded-[1.5rem] border border-white/70 bg-white/75 p-5 text-center shadow-2xl backdrop-blur transition group-hover/orbit:-translate-y-1">
         <Orbit className="mx-auto text-[#e4632b]" size={28} />
-        <p className="mt-3 text-lg font-extrabold tracking-[-0.04em] text-[#191611]">Feature Orbit</p>
-        <p className="mt-2 text-xs leading-5 text-[#191611]/60">Hover chips, update story, keep motion smooth.</p>
+        <p className="mt-3 text-lg font-extrabold tracking-[-0.04em] text-[#191611]">{activeFeature.title}</p>
+        <p className="mt-2 min-h-10 text-xs leading-5 text-[#191611]/60">{activeFeature.body}</p>
       </div>
     </div>
   );
@@ -392,7 +478,7 @@ function CaseDetailPage({ caseId, copiedCase, copyPrompt, icon: Icon, prompt, t 
           </div>
         </div>
         <div className="overflow-hidden rounded-[2rem] border border-[#191611]/10 bg-[#fffaf0] shadow-[0_28px_80px_rgba(25,22,17,0.12)]">
-          <div className={`p-6 ${caseId === 'aurora' ? 'bg-[#080914]' : 'bg-[#e8dcc8]'}`}>
+          <div className={`p-6 ${caseId === 'orbit' ? 'bg-[#e8dcc8]' : 'bg-[#080914]'}`}>
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-white/70 mix-blend-difference">{t('detail.previewLabel')}</p>
             <CasePreview caseId={caseId} large />
           </div>
