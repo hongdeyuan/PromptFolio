@@ -469,7 +469,7 @@ function CaseDetailPage({ caseId, copiedCase, copyPrompt, icon: Icon, prompt, t 
           <h1 className="mt-5 max-w-3xl font-display text-6xl font-semibold leading-none tracking-[-0.07em] text-[#191611] sm:text-7xl">{t(`showcase.${caseId}.title`)}</h1>
           <p className="mt-6 max-w-2xl text-xl leading-8 text-[#191611]/65">{t(`showcase.${caseId}.body`)}</p>
           <div className="mt-8 grid gap-3">
-            {(['bestFor', 'ingredients', 'acceptance'] as const).map((key) => (
+            {(['bestFor', 'ingredients', 'principle', 'acceptance'] as const).map((key) => (
               <div className="rounded-3xl border border-[#191611]/10 bg-[#fffaf0] p-5 shadow-sm" key={key}>
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e4632b]">{t(`detail.${key}`)}</p>
                 <p className="mt-2 leading-7 text-[#191611]/70">{t(`showcase.${caseId}.${key}`)}</p>
