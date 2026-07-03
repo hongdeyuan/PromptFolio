@@ -44,13 +44,19 @@ npm run preview
 
 This project is configured for GitHub Pages with GitHub Actions.
 
-On every push to `main`, `.github/workflows/deploy-pages.yml` will:
+On every push to `master` or `main`, `.github/workflows/jekyll-gh-pages.yml` will:
 
 1. Install dependencies with `npm ci`
-2. Build the app with `npm run build`
+2. Build the Vite app with `npm run build`
 3. Upload `dist/` to GitHub Pages
 
-In the GitHub repository settings, set Pages source to **GitHub Actions**. After the workflow succeeds, the site can be viewed at the repository's Pages URL, for example `https://<owner>.github.io/<repo>/` or `https://aiDesignCode.github.io/` if this is a user/organization Pages repository.
+In the GitHub repository settings, set Pages source to **GitHub Actions**. After the workflow succeeds, the site can be viewed at:
+
+```text
+https://hongdeyuan.github.io/aiDesignCode/
+```
+
+The Vite base path is configured as `/aiDesignCode/` in `vite.config.ts`, so built JS/CSS assets resolve correctly under the project Pages URL.
 
 ## Internationalization
 
