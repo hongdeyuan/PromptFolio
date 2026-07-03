@@ -40,6 +40,18 @@ Preview the production build:
 npm run preview
 ```
 
+## Deployment
+
+This project is configured for GitHub Pages with GitHub Actions.
+
+On every push to `main`, `.github/workflows/deploy-pages.yml` will:
+
+1. Install dependencies with `npm ci`
+2. Build the app with `npm run build`
+3. Upload `dist/` to GitHub Pages
+
+In the GitHub repository settings, set Pages source to **GitHub Actions**. After the workflow succeeds, the site can be viewed at the repository's Pages URL, for example `https://<owner>.github.io/<repo>/` or `https://aiDesignCode.github.io/` if this is a user/organization Pages repository.
+
 ## Internationalization
 
 Translations are managed with i18next and react-i18next.
