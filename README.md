@@ -1,6 +1,6 @@
-# Promptfolio
+# PromptFolio
 
-Promptfolio is a React + TypeScript website for collecting, analyzing, and sharing excellent prompt case studies. The current demo uses the Lithos hero-section prompt as a featured example and shows how a high-quality prompt can be broken down into reusable structure, interaction details, acceptance criteria, and inspiration cards.
+PromptFolio is a React + TypeScript website for collecting, analyzing, and sharing excellent prompt case studies. The current demo uses the Lithos hero-section prompt as a featured example and shows how a high-quality prompt can be broken down into reusable structure, interaction details, acceptance criteria, and inspiration cards.
 
 ## Tech Stack
 
@@ -53,10 +53,10 @@ On every push to `master` or `main`, `.github/workflows/jekyll-gh-pages.yml` wil
 In the GitHub repository settings, set Pages source to **GitHub Actions**. After the workflow succeeds, the site can be viewed at:
 
 ```text
-https://hongdeyuan.github.io/aiDesignCode/
+https://hongdeyuan.github.io/PromptFolio/
 ```
 
-The Vite base path is configured as `/aiDesignCode/` in `vite.config.ts`, so built JS/CSS assets resolve correctly under the project Pages URL.
+The Vite base path is configured as `/PromptFolio/` in `vite.config.ts`, so built JS/CSS assets resolve correctly under the project Pages URL.
 
 ## Internationalization
 

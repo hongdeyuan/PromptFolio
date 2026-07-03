@@ -120,7 +120,7 @@ function Shell({ activePage, children, language, switchLanguage, t }: ShellProps
             <div className="grid h-10 w-10 place-items-center rounded-full bg-[#191611] text-[#f3efe6]">
               <Sparkles size={18} />
             </div>
-            <span className="font-display text-2xl font-semibold tracking-[-0.04em]">Promptfolio</span>
+            <span className="font-display text-2xl font-semibold tracking-[-0.04em]">PromptFolio</span>
           </a>
           <div className="hidden items-center gap-1 rounded-full bg-[#191611]/5 p-1 md:flex">
             {navItems.map((item) => {
