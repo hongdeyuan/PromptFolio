@@ -1,0 +1,130 @@
+{
+  "anatomyBody": "A great case prompt is not just longer. It makes the creative intent and engineering boundaries clear at the same time.",
+  "anatomyKicker": "Prompt Anatomy",
+  "anatomyTitle": "Why is this case worth sharing?",
+  "ariaSwitch": "切换语言为中文",
+  "cardBody": "A strong case study that combines visual direction, interaction design, code constraints, and acceptance criteria in one prompt.",
+  "cardTitle": "Cursor spotlight geology hero",
+  "cases": {
+    "brand": "Brand site: use material metaphors for memorability",
+    "commerce": "Commerce hero: define focus through product story",
+    "dashboard": "Data dashboard: convert metrics into narrative flow",
+    "saas": "SaaS pricing: turn objections into page structure"
+  },
+  "casesPage": {
+    "body": "Browse high-quality prompt cases across different interaction types, then open a detail page for the full prompt, generated experience, and reuse guidance.",
+    "kicker": "Prompt Cases",
+    "title": "Excellent Case Library"
+  },
+  "copied": "Copied",
+  "copy": "Copy",
+  "copyPromptAria": "Copy prompt",
+  "detail": {
+    "acceptance": "Acceptance Criteria",
+    "back": "Back to Showcase",
+    "bestFor": "Best For",
+    "copyPrompt": "Copy Full Prompt",
+    "ingredients": "Key Ingredients",
+    "notFoundBody": "Return to the showcase and choose an available case.",
+    "notFoundTitle": "Case not found",
+    "overview": "Case Overview",
+    "previewLabel": "Experience Preview",
+    "promptLabel": "Full Prompt"
+  },
+  "eyebrow": "A gallery for excellent prompt case studies",
+  "featured": "Featured",
+  "heroBody": "Turn high-quality prompts like Lithos into learnable, reusable, and shareable case cards so creators can move from writing requests to defining shippable outcomes.",
+  "heroTitle": "Collect prompts that already know how to ship.",
+  "homeSections": {
+    "casesBody": "Each case includes an experience preview, full prompt, best-use scenarios, key ingredients, and acceptance criteria.",
+    "casesTitle": "Start from visual cases, not blank prompts.",
+    "methodBody": "We evaluate structure, mechanics, acceptance criteria, transferability, and output consistency.",
+    "methodTitle": "Use one standard to judge whether a prompt is excellent."
+  },
+  "languageName": "English",
+  "libraryKicker": "Library",
+  "libraryTitle": "Make excellent prompts browsable as an inspiration library.",
+  "methodPage": {
+    "body": "A strong case prompt is not simply longer. It clarifies intent, constrains the boundaries, explains the interaction mechanism, and defines acceptance standards.",
+    "kicker": "Methodology",
+    "principles": {
+      "acceptance": "Testable acceptance",
+      "acceptanceText": "Quality can be judged through copy, styling, behavior, and accessibility states.",
+      "mechanic": "Precise mechanic",
+      "mechanicText": "The core interaction or visual mechanic includes parameters, steps, and boundary conditions.",
+      "structure": "Complete structure",
+      "structureText": "Stack, assets, layout, states, responsiveness, and delivery standards are clearly separated."
+    },
+    "title": "How to evaluate excellent prompts"
+  },
+  "metrics": {
+    "detailDensity": "Detail density",
+    "implementationClarity": "Implementation clarity",
+    "reusableConstraints": "Reusable constraints"
+  },
+  "nav": {
+    "cases": "Cases",
+    "library": "Library",
+    "method": "Method",
+    "overview": "Overview"
+  },
+  "nextLanguage": "中文",
+  "notFound": {
+    "action": "Back to Overview",
+    "body": "Return to the overview or choose an available page.",
+    "title": "Page not found"
+  },
+  "overview": {
+    "body": "Promptfolio helps teams preserve reusable prompt assets through structured detail pages, visual previews, copy-ready prompts, and quality breakdowns.",
+    "kicker": "Promptfolio Overview",
+    "pill": "Curated for design, frontend, and AI product teams",
+    "primary": "Browse Cases",
+    "secondary": "View Method",
+    "stats": {
+      "cases": "Featured Cases",
+      "copyReady": "Copy-ready Prompts",
+      "criteria": "Evaluation Criteria"
+    },
+    "title": "A professional knowledge base for excellent prompt cases."
+  },
+  "primaryCta": "View Featured Case",
+  "promptExcerpt": "Lithos Prompt Excerpt",
+  "secondaryCta": "Learn the Breakdown",
+  "sections": {
+    "acceptanceText": "Sizes, classes, copy, colors, and animation delays are measurable, which reduces subjective interpretation and rework.",
+    "acceptanceTitle": "Clear acceptance",
+    "completeText": "It separates stack, fonts, assets, layers, interaction, animation, and responsive rules so implementation can begin immediately.",
+    "completeTitle": "Complete structure",
+    "mechanicText": "Instead of saying “follow the cursor,” it specifies the canvas mask, radius, gradient stops, and RAF smoothing parameters.",
+    "mechanicTitle": "Precise mechanic"
+  },
+  "shareCase": "Share Case",
+  "showcase": {
+    "aurora": {
+      "acceptance": "The button uses CSS-only animation; hover feels subtly magnetic; focus is visible; mobile sizing never overflows.",
+      "bestFor": "Brand homepage CTAs, campaign landing pages, sign-in primary actions, and premium product launch entrances.",
+      "body": "Best for premium CTAs, launch pages, sign-in flows, or event entrances.",
+      "ingredients": "Dark glass base, conic-gradient aurora border, internal shimmer, bloom shadow, hover lift, and reduced-motion fallback.",
+      "prompt": "Build a premium liquid aurora button using React + TypeScript + Tailwind CSS. The button should have a dark glass base, animated conic-gradient aurora border, slow internal shimmer, soft bloom shadow, and a subtle magnetic hover lift. Include accessible focus states, reduced-motion fallback, and responsive sizing. Use only CSS animations, no animation libraries.",
+      "tag": "CSS Animation",
+      "title": "Liquid Aurora Button"
+    },
+    "orbit": {
+      "acceptance": "Hovering a chip pauses the orbit; central copy updates with state; keyboard operation works; narrow screens keep clear hierarchy.",
+      "bestFor": "AI product feature tours, SaaS homepage modules, interactive navigation, and product capability maps.",
+      "body": "Best for AI tools, SaaS feature modules, or memorable creative navigation.",
+      "ingredients": "Central product card, four orbiting feature chips, hover pause, selected highlight, fade/slide copy updates, and keyboard-accessible buttons.",
+      "prompt": "Create an interactive orbital feature selector in React + TypeScript + Tailwind CSS. Show a central product card with four orbiting feature chips. Hovering a chip should pause the orbit, highlight the selected feature, and update the central description with a smooth fade/slide transition. Use lucide-react icons, keyboard-accessible buttons, and a polished responsive layout.",
+      "tag": "UI Interaction",
+      "title": "Orbital Feature Selector"
+    }
+  },
+  "showcaseBody": "Here are two copy-ready prompt cases: one for silky CSS animation, and one for UI interaction. Each card includes a concrete visual treatment and the full prompt.",
+  "showcaseKicker": "Case Showcase",
+  "showcaseTitle": "Excellent cases should show the experience, not just the text.",
+  "submitCase": "Submit Your Case",
+  "templateBadge": "Copy-ready Case",
+  "templateBody": "The site can pair each prompt with the original text, teardown notes, quality tags, reusable templates, and visual previews.",
+  "templateTitle": "Turn every case into a reusable prompt asset.",
+  "viewDetail": "View Detail"
+}

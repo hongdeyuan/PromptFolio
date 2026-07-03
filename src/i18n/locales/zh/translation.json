@@ -1,0 +1,130 @@
+{
+  "anatomyBody": "好的案例提示词不是把想法写长，而是把“创意意图”和“工程边界”同时写清楚。",
+  "anatomyKicker": "Prompt Anatomy",
+  "anatomyTitle": "为什么这个案例值得分享？",
+  "ariaSwitch": "Switch language to English",
+  "cardBody": "一个把视觉、交互、代码约束和验收标准写到同一份提示词里的优秀案例。",
+  "cardTitle": "Cursor spotlight geology hero",
+  "cases": {
+    "brand": "品牌官网：用材质隐喻建立记忆点",
+    "commerce": "电商首屏：用产品故事定义视觉焦点",
+    "dashboard": "数据大屏：把业务指标转成叙事动线",
+    "saas": "SaaS 定价页：从异议处理生成版式"
+  },
+  "casesPage": {
+    "body": "浏览不同类型的高质量提示词案例，进入详情页查看完整 prompt、生成效果与复用建议。",
+    "kicker": "Prompt Cases",
+    "title": "优秀案例库"
+  },
+  "copied": "已复制",
+  "copy": "复制",
+  "copyPromptAria": "复制提示词",
+  "detail": {
+    "acceptance": "验收标准",
+    "back": "返回案例展示",
+    "bestFor": "适用场景",
+    "copyPrompt": "复制完整提示词",
+    "ingredients": "关键组成",
+    "notFoundBody": "请回到案例展示页选择一个可用案例。",
+    "notFoundTitle": "没有找到这个案例",
+    "overview": "案例概览",
+    "previewLabel": "效果预览",
+    "promptLabel": "完整提示词"
+  },
+  "eyebrow": "优秀案例提示词分析与分享平台",
+  "featured": "Featured",
+  "heroBody": "把 Lithos 这类高质量提示词拆成可学习、可复用、可分享的案例卡片，帮助创作者从“写需求”升级到“定义可验收的作品”。",
+  "heroTitle": "Collect prompts that already know how to ship.",
+  "homeSections": {
+    "casesBody": "每个案例都包含效果预览、完整提示词、适用场景、关键组成和验收标准。",
+    "casesTitle": "从可视化案例开始，而不是从空白提示词开始。",
+    "methodBody": "我们关注结构、机制、验收、可迁移性和生成结果的一致性。",
+    "methodTitle": "用同一套标准判断提示词是否优秀。"
+  },
+  "languageName": "中文",
+  "libraryKicker": "Library",
+  "libraryTitle": "让优秀提示词变成可浏览的灵感库。",
+  "methodPage": {
+    "body": "好的案例提示词不是更长，而是能明确意图、约束边界、解释交互机制，并给出可验收的输出标准。",
+    "kicker": "Methodology",
+    "principles": {
+      "acceptance": "验收可判定",
+      "acceptanceText": "结果是否达标可以通过文案、样式、行为和无障碍状态判断。",
+      "mechanic": "机制明确",
+      "mechanicText": "核心交互或视觉机制有参数、有步骤、有边界条件。",
+      "structure": "结构完整",
+      "structureText": "技术栈、素材、布局、状态、响应式和交付标准都被拆清楚。"
+    },
+    "title": "优秀提示词的评估方法"
+  },
+  "metrics": {
+    "detailDensity": "细节密度",
+    "implementationClarity": "实现清晰度",
+    "reusableConstraints": "可复用约束"
+  },
+  "nav": {
+    "cases": "案例",
+    "library": "案例库",
+    "method": "方法",
+    "overview": "概览"
+  },
+  "nextLanguage": "EN",
+  "notFound": {
+    "action": "返回概览",
+    "body": "请返回概览页或选择一个可用页面。",
+    "title": "页面不存在"
+  },
+  "overview": {
+    "body": "Promptfolio 用结构化详情页、可视化预览、可复制提示词和质量拆解，帮助团队沉淀真正可复用的提示词资产。",
+    "kicker": "Promptfolio Overview",
+    "pill": "为设计、前端和 AI 产品团队整理",
+    "primary": "浏览案例",
+    "secondary": "查看方法论",
+    "stats": {
+      "cases": "精选案例",
+      "copyReady": "可复制提示词",
+      "criteria": "评估维度"
+    },
+    "title": "一个面向优秀提示词案例的专业知识库。"
+  },
+  "primaryCta": "查看精选案例",
+  "promptExcerpt": "Lithos 提示词摘录",
+  "secondaryCta": "学习拆解方法",
+  "sections": {
+    "acceptanceText": "尺寸、类名、文案、颜色和动效延迟都被量化，减少主观理解带来的返工。",
+    "acceptanceTitle": "验收可判定",
+    "completeText": "从技术栈、字体、素材、层级、交互、动画到响应式规则逐层拆开，开发者可以直接实现。",
+    "completeTitle": "结构完整",
+    "mechanicText": "核心亮点不是一句“跟随鼠标”，而是给出 canvas mask、半径、渐变停靠点与 RAF 平滑参数。",
+    "mechanicTitle": "机制明确"
+  },
+  "shareCase": "分享案例",
+  "showcase": {
+    "aurora": {
+      "acceptance": "按钮必须只用 CSS 动画；hover 有轻微磁吸感；focus 状态清晰；移动端尺寸不溢出。",
+      "bestFor": "品牌首页 CTA、活动落地页、登录页主按钮、高端产品发布入口。",
+      "body": "适合生成丝滑的品牌 CTA、登录页按钮或高端活动入口。",
+      "ingredients": "暗色玻璃底座、conic-gradient 极光边框、内部 shimmer、高光阴影、悬浮抬升、reduced-motion 兜底。",
+      "prompt": "Build a premium liquid aurora button using React + TypeScript + Tailwind CSS. The button should have a dark glass base, animated conic-gradient aurora border, slow internal shimmer, soft bloom shadow, and a subtle magnetic hover lift. Include accessible focus states, reduced-motion fallback, and responsive sizing. Use only CSS animations, no animation libraries.",
+      "tag": "CSS Animation",
+      "title": "极光液态按钮"
+    },
+    "orbit": {
+      "acceptance": "hover 芯片时轨道停止；中心文案同步更新；键盘可操作；窄屏布局仍保持层级清晰。",
+      "bestFor": "AI 产品功能展示、SaaS 首页模块、交互式导航、产品能力地图。",
+      "body": "适合展示 AI 工具、SaaS 功能模块或创意导航交互。",
+      "ingredients": "中心产品卡、四个轨道功能芯片、hover 暂停、选中态高亮、描述区淡入滑动、键盘可访问按钮。",
+      "prompt": "Create an interactive orbital feature selector in React + TypeScript + Tailwind CSS. Show a central product card with four orbiting feature chips. Hovering a chip should pause the orbit, highlight the selected feature, and update the central description with a smooth fade/slide transition. Use lucide-react icons, keyboard-accessible buttons, and a polished responsive layout.",
+      "tag": "UI Interaction",
+      "title": "轨道式功能选择器"
+    }
+  },
+  "showcaseBody": "这里展示两个可直接复制的提示词案例：一个偏 CSS 丝滑动画，一个偏 UI 交互。每张卡都给出真实视觉样式和完整提示词。",
+  "showcaseKicker": "Case Showcase",
+  "showcaseTitle": "优秀案例不只看文字，也要看它生成什么样的体验。",
+  "submitCase": "提交你的案例",
+  "templateBadge": "可复制案例",
+  "templateBody": "网站可以围绕每个优秀提示词提供原文、拆解、亮点标签、复用模板和效果预览。",
+  "templateTitle": "从案例直接沉淀你的提示词资产。",
+  "viewDetail": "查看详情"
+}

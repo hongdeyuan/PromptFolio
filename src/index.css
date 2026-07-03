@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Manrope', sans-serif;
+  color-scheme: light;
+  background: #f3efe6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+.font-display {
+  font-family: 'Instrument Serif', serif;
+}
+
+.grain {
+  background-image: radial-gradient(circle at 1px 1px, rgba(25, 22, 17, 0.22) 1px, transparent 0);
+  background-size: 18px 18px;
+}
+
+.aurora-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: conic-gradient(from 0deg, #5eead4, #60a5fa, #f472b6, #fb923c, #5eead4);
+  animation: aurora-spin 5s linear infinite;
+}
+
+.aurora-shine {
+  background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.28) 45%, transparent 68%);
+  transform: translateX(-120%);
+  animation: aurora-shimmer 2.8s ease-in-out infinite;
+}
+
+.orbit-ring {
+  animation: orbit-spin 12s linear infinite;
+}
+
+.orbit-chip {
+  animation: orbit-chip-float 4s ease-in-out infinite;
+}
+
+.orbit-chip-1 {
+  left: calc(50% - 1.8rem);
+  top: 1.45rem;
+}
+
+.orbit-chip-2 {
+  right: 1.1rem;
+  top: calc(50% - 1rem);
+  animation-delay: -1s;
+}
+
+.orbit-chip-3 {
+  bottom: 1.45rem;
+  left: calc(50% - 1.7rem);
+  animation-delay: -2s;
+}
+
+.orbit-chip-4 {
+  left: 1.1rem;
+  top: calc(50% - 1rem);
+  animation-delay: -3s;
+}
+
+@keyframes aurora-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes aurora-shimmer {
+  0%, 35% {
+    transform: translateX(-120%);
+  }
+  70%, 100% {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes orbit-chip-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-button::before,
+  .aurora-shine,
+  .orbit-ring,
+  .orbit-chip {
+    animation: none;
+  }
+}
