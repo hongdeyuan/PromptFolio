@@ -217,6 +217,12 @@ a {
   animation: glass-orb-drift 9s ease-in-out infinite reverse;
 }
 
+.dog-brain-stage canvas {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
 @keyframes aurora-spin {
   to {
     transform: rotate(1turn);

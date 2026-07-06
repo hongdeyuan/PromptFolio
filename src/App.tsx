@@ -1,5 +1,6 @@
-import { useEffect, useState, type CSSProperties, type PointerEvent } from 'react';
-import { ArrowUpRight, BadgeCheck, BookOpenText, Check, Clipboard, Gem, Globe2, Layers3, MousePointer2, Orbit, Sparkles, WandSparkles } from 'lucide-react';
+import { useEffect, useRef, useState, type CSSProperties, type PointerEvent } from 'react';
+import * as THREE from 'three';
+import { ArrowUpRight, BadgeCheck, BookOpenText, BrainCircuit, Check, Clipboard, Gem, Globe2, Layers3, MousePointer2, Orbit, Sparkles, WandSparkles } from 'lucide-react';
 import type { TFunction } from 'i18next';
 import { useTranslation } from 'react-i18next';
 
@@ -27,6 +28,7 @@ const metrics = [
   { value: '12', labelKey: 'metrics.reusableConstraints' },
 ] as const;
 const showcaseCases = [
+  { id: 'dogBrain', icon: BrainCircuit, promptKey: 'showcase.dogBrain.prompt' },
   { id: 'aurora', icon: WandSparkles, promptKey: 'showcase.aurora.prompt' },
   { id: 'orbit', icon: Orbit, promptKey: 'showcase.orbit.prompt' },
   { id: 'glass', icon: Gem, promptKey: 'showcase.glass.prompt' },
@@ -183,7 +185,7 @@ function OverviewPage({ t }: { t: TFunction }) {
 
       <section className="mt-20 grid gap-5 md:grid-cols-3">
         {[
-          ['03', 'overview.stats.cases'],
+          ['04', 'overview.stats.cases'],
           ['05', 'overview.stats.criteria'],
           ['100%', 'overview.stats.copyReady'],
         ].map(([value, label]) => (
@@ -264,7 +266,7 @@ function CaseCard({ copiedCase, copyPrompt, item, t }: { copiedCase: string | nu
 
   return (
     <article className="overflow-hidden rounded-[2rem] border border-[#191611]/10 bg-[#f3efe6] shadow-[0_28px_80px_rgba(25,22,17,0.12)]">
-      <div className={`relative min-h-[320px] overflow-hidden p-6 ${item.id === 'orbit' ? 'bg-[#e8dcc8]' : 'bg-[#080914]'}`}>
+      <div className={`relative min-h-[320px] overflow-hidden p-6 ${item.id === 'orbit' ? 'bg-[#e8dcc8]' : item.id === 'dogBrain' ? 'bg-[#0b1610]' : 'bg-[#080914]'}`}>
         <CasePreview caseId={item.id} />
       </div>
       <div className="p-6">
@@ -340,6 +342,194 @@ function LibraryPage({ t }: { t: TFunction }) {
   );
 }
 
+
+function DogBrainPreview({ large = false }: { large?: boolean }) {
+  const mountRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const mount = mountRef.current;
+    if (!mount) return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+    camera.position.set(0, 1.35, 8.8);
+
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    mount.appendChild(renderer.domElement);
+
+    const keyLight = new THREE.PointLight(0xf7c07a, 2.8, 18);
+    keyLight.position.set(3.6, 4.2, 5.2);
+    const rimLight = new THREE.PointLight(0x65f2bc, 2.1, 16);
+    rimLight.position.set(-3.8, 1.2, 3.6);
+    scene.add(keyLight, rimLight, new THREE.AmbientLight(0x92d6b3, 1));
+
+    const brain = new THREE.Group();
+    scene.add(brain);
+
+    const cortexMaterial = new THREE.MeshPhysicalMaterial({ color: 0xf28b67, roughness: 0.5, metalness: 0.02, clearcoat: 0.35, transmission: 0.04, emissive: 0x2a0804, emissiveIntensity: 0.2 });
+    const frontalMaterial = new THREE.MeshPhysicalMaterial({ color: 0xffb26f, roughness: 0.44, clearcoat: 0.3, emissive: 0x331305, emissiveIntensity: 0.22 });
+    const olfactoryMaterial = new THREE.MeshPhysicalMaterial({ color: 0x6ee7a7, roughness: 0.32, clearcoat: 0.42, emissive: 0x06391f, emissiveIntensity: 0.42 });
+    const hippocampusMaterial = new THREE.MeshPhysicalMaterial({ color: 0x8fd3ff, roughness: 0.38, clearcoat: 0.25, emissive: 0x06243b, emissiveIntensity: 0.34 });
+    const cerebellumMaterial = new THREE.MeshPhysicalMaterial({ color: 0xf7d977, roughness: 0.56, clearcoat: 0.18, emissive: 0x342204, emissiveIntensity: 0.24 });
+    const stemMaterial = new THREE.MeshStandardMaterial({ color: 0xb88c66, roughness: 0.52, emissive: 0x241105, emissiveIntensity: 0.2 });
+    const signalMaterial = new THREE.MeshStandardMaterial({ color: 0xb8ffe2, roughness: 0.18, emissive: 0x35e69a, emissiveIntensity: 0.95 });
+    const grooveMaterial = new THREE.MeshBasicMaterial({ color: 0x2f120b, transparent: true, opacity: 0.72 });
+    const connectionMaterial = new THREE.MeshBasicMaterial({ color: 0x7cf7c6, transparent: true, opacity: 0.28 });
+
+    const makeLobe = (x: number, y: number, z: number, sx: number, sy: number, sz: number, material: THREE.Material) => {
+      const mesh = new THREE.Mesh(new THREE.SphereGeometry(1, 64, 42), material);
+      mesh.position.set(x, y, z);
+      mesh.scale.set(sx, sy, sz);
+      brain.add(mesh);
+      return mesh;
+    };
+
+    makeLobe(-0.72, 0.22, 0, 1.26, 0.82, 1.08, cortexMaterial);
+    makeLobe(0.72, 0.22, 0, 1.26, 0.82, 1.08, cortexMaterial);
+    makeLobe(-0.52, 0.78, -0.18, 0.88, 0.45, 0.74, frontalMaterial);
+    makeLobe(0.52, 0.78, -0.18, 0.88, 0.45, 0.74, frontalMaterial);
+    makeLobe(-1.78, 0.1, 0.28, 0.58, 0.38, 0.6, olfactoryMaterial);
+    makeLobe(1.78, 0.1, 0.28, 0.58, 0.38, 0.6, olfactoryMaterial);
+    makeLobe(-0.62, -0.28, 0.88, 0.5, 0.2, 0.34, hippocampusMaterial);
+    makeLobe(0.62, -0.28, 0.88, 0.5, 0.2, 0.34, hippocampusMaterial);
+    makeLobe(0, -0.82, -0.48, 1.04, 0.48, 0.72, cerebellumMaterial);
+
+    const brainStem = new THREE.Mesh(new THREE.CapsuleGeometry(0.18, 0.95, 8, 24), stemMaterial);
+    brainStem.position.set(0, -1.35, -0.28);
+    brainStem.rotation.z = 0.08;
+    brain.add(brainStem);
+
+    const addTube = (points: THREE.Vector3[], radius: number, material: THREE.Material, parent: THREE.Object3D = brain) => {
+      const curve = new THREE.CatmullRomCurve3(points);
+      const tube = new THREE.Mesh(new THREE.TubeGeometry(curve, 44, radius, 8, false), material);
+      parent.add(tube);
+      return tube;
+    };
+
+    for (let side = -1; side <= 1; side += 2) {
+      for (let row = 0; row < 5; row += 1) {
+        for (let index = 0; index < 7; index += 1) {
+          const baseX = side * (0.18 + index * 0.22);
+          const baseY = 0.82 - row * 0.33;
+          const wave = Math.sin(index * 1.7 + row) * 0.12;
+          addTube([
+            new THREE.Vector3(baseX, baseY, 0.82),
+            new THREE.Vector3(baseX + side * 0.13, baseY - 0.12, 1.08 + wave),
+            new THREE.Vector3(baseX + side * 0.04, baseY - 0.28, 0.92),
+          ], 0.009 + row * 0.001, grooveMaterial);
+        }
+      }
+    }
+
+    for (let index = 0; index < 14; index += 1) {
+      const y = -0.62 - index * 0.035;
+      addTube([
+        new THREE.Vector3(-0.78 + index * 0.025, y, 0.24),
+        new THREE.Vector3(0, y - 0.08, 0.58),
+        new THREE.Vector3(0.78 - index * 0.025, y, 0.24),
+      ], 0.007, grooveMaterial);
+    }
+
+    const signalPoints: THREE.Vector3[] = [];
+    const signals: THREE.Mesh[] = [];
+    for (let index = 0; index < 44; index += 1) {
+      const side = index % 2 === 0 ? -1 : 1;
+      const node = new THREE.Mesh(new THREE.SphereGeometry(0.04, 18, 14), signalMaterial);
+      node.position.set(side * (0.18 + Math.random() * 1.55), -0.48 + Math.random() * 1.45, 0.46 + Math.random() * 0.82);
+      brain.add(node);
+      signals.push(node);
+      signalPoints.push(node.position.clone());
+    }
+
+    for (let index = 0; index < signalPoints.length - 1; index += 3) {
+      addTube([signalPoints[index], signalPoints[index + 1], signalPoints[Math.min(index + 2, signalPoints.length - 1)]], 0.004, connectionMaterial);
+    }
+
+    const olfactoryTractMaterial = new THREE.MeshBasicMaterial({ color: 0x9fffe0, transparent: true, opacity: 0.46 });
+    addTube([new THREE.Vector3(-1.82, 0.12, 0.48), new THREE.Vector3(-1.28, 0.0, 0.82), new THREE.Vector3(-0.48, -0.12, 0.82)], 0.018, olfactoryTractMaterial);
+    addTube([new THREE.Vector3(1.82, 0.12, 0.48), new THREE.Vector3(1.28, 0.0, 0.82), new THREE.Vector3(0.48, -0.12, 0.82)], 0.018, olfactoryTractMaterial);
+
+    const skullMaterial = new THREE.MeshBasicMaterial({ color: 0xc7f9df, transparent: true, opacity: 0.38 });
+    addTube([
+      new THREE.Vector3(-2.95, -1.2, -0.62),
+      new THREE.Vector3(-2.56, 0.52, -0.74),
+      new THREE.Vector3(-1.38, 1.72, -0.9),
+      new THREE.Vector3(0, 1.95, -0.96),
+      new THREE.Vector3(1.38, 1.72, -0.9),
+      new THREE.Vector3(2.56, 0.52, -0.74),
+      new THREE.Vector3(2.95, -1.2, -0.62),
+    ], 0.015, skullMaterial, scene);
+    addTube([
+      new THREE.Vector3(-2.55, -0.24, -0.48),
+      new THREE.Vector3(-3.14, -0.45, -0.5),
+      new THREE.Vector3(-3.38, -0.12, -0.46),
+    ], 0.013, skullMaterial, scene);
+    addTube([
+      new THREE.Vector3(2.55, -0.24, -0.48),
+      new THREE.Vector3(3.14, -0.45, -0.5),
+      new THREE.Vector3(3.38, -0.12, -0.46),
+    ], 0.013, skullMaterial, scene);
+
+    const resize = () => {
+      const width = mount.clientWidth || 640;
+      const height = mount.clientHeight || 420;
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    };
+
+    const resizeObserver = new ResizeObserver(resize);
+    resizeObserver.observe(mount);
+    resize();
+
+    let frameId = 0;
+    const animate = () => {
+      const time = performance.now() * 0.001;
+      brain.rotation.y = Math.sin(time * 0.36) * 0.32;
+      brain.rotation.x = Math.sin(time * 0.24) * 0.08;
+      brain.position.y = Math.sin(time * 0.8) * 0.035;
+      signals.forEach((node, index) => {
+        const pulse = 1 + Math.sin(time * 2.8 + index * 0.74) * 0.42;
+        node.scale.setScalar(pulse);
+      });
+      renderer.render(scene, camera);
+      frameId = requestAnimationFrame(animate);
+    };
+    animate();
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      resizeObserver.disconnect();
+      mount.removeChild(renderer.domElement);
+      renderer.dispose();
+      scene.traverse((object) => {
+        if (object instanceof THREE.Mesh) {
+          object.geometry.dispose();
+          const materials = Array.isArray(object.material) ? object.material : [object.material];
+          materials.forEach((material) => material.dispose());
+        }
+      });
+    };
+  }, []);
+
+  return (
+    <div className={`${large ? 'min-h-[520px]' : 'min-h-[320px]'} dog-brain-stage relative overflow-hidden rounded-[1.5rem] bg-[radial-gradient(circle_at_18%_20%,rgba(103,211,145,0.24),transparent_28%),radial-gradient(circle_at_76%_72%,rgba(242,161,95,0.26),transparent_30%),linear-gradient(135deg,#07130e,#12231a_48%,#060908)]`}>
+      <div ref={mountRef} className="absolute inset-0" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-x-5 top-5 flex items-center justify-between text-white/80">
+        <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.22em] backdrop-blur">Canine Neural Atlas</span>
+        <span className="rounded-full bg-[#67d391]/20 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.22em] text-[#b7ffd8]">44 nodes</span>
+      </div>
+      <div className="pointer-events-none absolute left-5 top-16 hidden max-w-[11rem] space-y-2 text-white/82 sm:block">
+        {['Frontal cortex', 'Olfactory bulb', 'Hippocampus', 'Cerebellum'].map((label) => (
+          <div className="rounded-full border border-white/12 bg-black/22 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] backdrop-blur-md" key={label}>{label}</div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function CasePreview({ caseId, large = false }: { caseId: ShowcaseCaseId; large?: boolean }) {
   const [pointer, setPointer] = useState({ x: 50, y: 42, rx: 0, ry: 0 });
   const [activeOrbit, setActiveOrbit] = useState(0);
@@ -364,6 +554,10 @@ function CasePreview({ caseId, large = false }: { caseId: ShowcaseCaseId; large?
   };
 
   const resetGlassPointer = () => setPointer({ x: 50, y: 42, rx: 0, ry: 0 });
+
+  if (caseId === 'dogBrain') {
+    return <DogBrainPreview large={large} />;
+  }
 
   if (caseId === 'aurora') {
     return (
@@ -478,7 +672,7 @@ function CaseDetailPage({ caseId, copiedCase, copyPrompt, icon: Icon, prompt, t 
           </div>
         </div>
         <div className="overflow-hidden rounded-[2rem] border border-[#191611]/10 bg-[#fffaf0] shadow-[0_28px_80px_rgba(25,22,17,0.12)]">
-          <div className={`p-6 ${caseId === 'orbit' ? 'bg-[#e8dcc8]' : 'bg-[#080914]'}`}>
+          <div className={`p-6 ${caseId === 'orbit' ? 'bg-[#e8dcc8]' : caseId === 'dogBrain' ? 'bg-[#0b1610]' : 'bg-[#080914]'}`}>
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-white/70 mix-blend-difference">{t('detail.previewLabel')}</p>
             <CasePreview caseId={caseId} large />
           </div>

@@ -130,9 +130,19 @@
       "prompt": "Build a premium glassmorphism modal card using React + TypeScript + Tailwind CSS. Create a dark cinematic stage with drifting blurred color orbs, a frosted glass modal panel, luminous border highlights, animated diagonal sheen, and clear primary/secondary actions. Add pointer-driven interaction: attach onPointerMove to the preview container, calculate the cursor position as percentages within the container, and write CSS variables --glass-x, --glass-y, --glass-rx, and --glass-ry. Use --glass-x and --glass-y in radial-gradient layers to create a cursor-following spotlight and refracted edge highlight. Use rotateX(var(--glass-rx)) rotateY(var(--glass-ry)) on the glass panel for subtle 3D tilt, resetting to center on pointer leave. On hover, brighten the border, increase the glow shadow, lift the icon/chips/buttons with translateZ or translateY, and keep all decorative light layers pointer-events: none so controls remain interactive. Include accessible buttons, strong contrast, responsive mobile behavior, and a prefers-reduced-motion fallback that disables floating, sheen, and orb animations.",
       "tag": "CSS Animation",
       "title": "高级质感玻璃弹窗卡片"
+    },
+    "dogBrain": {
+      "acceptance": "必须使用 Three.js 在 canvas 中渲染更精细的可旋转狗狗大脑：左右脑叶、前额叶、嗅球、海马、脑干、小脑、密集脑沟、44 个神经节点和连接束都要可见；移动端保持可读并正确清理资源。",
+      "bestFor": "教育科普页、宠物科技产品演示、兽医健康数据可视化、AI 宠物硬件发布页。",
+      "body": "用 Three.js 构建一个更精细的犬类神经图谱，包含脑叶分区、嗅觉通路、海马、小脑、脑干和脉冲神经网络。",
+      "ingredients": "Three.js 场景、PhysicalMaterial 脑区材质、左右脑叶和前额叶分区、嗅球与嗅觉通路、海马、小脑、脑干、密集 TubeGeometry 脑沟、44 个脉冲节点、神经连接束、犬类头骨和耳部轮廓。",
+      "principle": "新版模型把“大脑”拆成多个可识别脑区，而不是单纯球体组合：脑叶、前额叶、嗅球、海马、小脑和脑干分别使用不同材质与比例；多层 TubeGeometry 形成脑沟、嗅觉通路和神经连接；44 个发光节点按左右脑分布并在 requestAnimationFrame 中独立脉冲，让模型更像一个可解释的犬类神经图谱。",
+      "prompt": "Create a refined responsive Three.js case-study module in React + TypeScript for a stylized canine brain atlas. Build the model procedurally without external assets: separate left/right cortex lobes, frontal cortex pads, olfactory bulbs, hippocampus forms, cerebellum, and brain stem with distinct physical materials; add dense TubeGeometry cortical grooves across both hemispheres, cerebellar folds, olfactory tracts, neural connection bundles, and a subtle dog skull silhouette with ear contours. Scatter at least 40 emissive neural nodes across the lobes and animate independent pulses over time while the brain slowly rotates and floats. Use PerspectiveCamera, warm key light, green rim light, ambient fill, antialiasing, SRGB output, device-pixel-ratio clamping, ResizeObserver resizing, and complete cleanup of renderer, geometries, and materials on unmount. Overlay compact labels for Frontal cortex, Olfactory bulb, Hippocampus, and Cerebellum. The result should feel like a premium science-museum neural atlas, readable on desktop and mobile.",
+      "tag": "Three.js 3D",
+      "title": "狗狗大脑 3D 模型展示"
     }
   },
-  "showcaseBody": "这里展示三个可直接复制的提示词案例：两个偏 CSS 丝滑动画，一个偏 UI 交互。每张卡都给出真实视觉样式和完整提示词。",
+  "showcaseBody": "这里展示四个可直接复制的提示词案例：一个 Three.js 3D 展示、两个偏 CSS 丝滑动画，一个偏 UI 交互。每张卡都给出真实视觉样式和完整提示词。",
   "showcaseKicker": "Case Showcase",
   "showcaseTitle": "优秀案例不只看文字，也要看它生成什么样的体验。",
   "submitCase": "提交你的案例",
