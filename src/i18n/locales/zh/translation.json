@@ -140,9 +140,19 @@
       "prompt": "Create a refined responsive Three.js case-study module in React + TypeScript for a stylized canine brain atlas. Build the model procedurally without external assets: separate left/right cortex lobes, frontal cortex pads, olfactory bulbs, hippocampus forms, cerebellum, and brain stem with distinct physical materials; add dense TubeGeometry cortical grooves across both hemispheres, cerebellar folds, olfactory tracts, neural connection bundles, and a subtle dog skull silhouette with ear contours. Scatter at least 40 emissive neural nodes across the lobes and animate independent pulses over time while the brain slowly rotates and floats. Use PerspectiveCamera, warm key light, green rim light, ambient fill, antialiasing, SRGB output, device-pixel-ratio clamping, ResizeObserver resizing, and complete cleanup of renderer, geometries, and materials on unmount. Overlay compact labels for Frontal cortex, Olfactory bulb, Hippocampus, and Cerebellum. The result should feel like a premium science-museum neural atlas, readable on desktop and mobile.",
       "tag": "Three.js 3D",
       "title": "狗狗大脑 3D 模型展示"
+    },
+    "textTruncate": {
+      "acceptance": "必须同时展示单行省略、多行 clamp、中间省略、渐隐遮罩、标签换行和展开查看；每种方案要说明适用边界，长中英文、文件名和移动端宽度都不能破坏布局。",
+      "bestFor": "内容卡片、文件列表、商品标题、通知中心、数据表格、移动端信息流和后台管理界面。",
+      "body": "对比多种文案省略策略，让长标题、描述、文件名和标签在不同容器中都保持可读和可控。",
+      "ingredients": "单行 text-overflow、两行 line-clamp、中间保留后缀、渐隐遮罩、可换行标签、展开详情、title/aria-label 完整文案、响应式断点。",
+      "principle": "这个案例强调“省略不是统一裁掉”，而是根据阅读任务选择策略：标题用单行省略保证列表整齐，描述用两行 clamp 保留语义密度，文件名用中间省略保留扩展名，营销文案用渐隐弱化截断感，标签组允许换行，重要内容提供展开入口和完整可访问文本。",
+      "prompt": "Create a responsive copy truncation showcase in React + TypeScript + Tailwind CSS. Build a compact UI lab that compares at least six text-overflow strategies: single-line ellipsis for titles, two-line line-clamp for descriptions, middle truncation that preserves a filename extension or identifier suffix, gradient fade for editorial copy, wrapping chips for tag groups, and an expandable details pattern for full text. Use realistic long Chinese and English copy, file names, product titles, and status labels. Keep the layout readable from mobile to desktop, use min-width: 0 wherever flex/grid truncation needs it, preserve full text through title or aria-label attributes, and explain which strategy is best for each content type. Add subtle visual hierarchy, clear focus states, and no JavaScript measurement unless absolutely necessary.",
+      "tag": "Content UX",
+      "title": "多方案文案省略展示"
     }
   },
-  "showcaseBody": "这里展示四个可直接复制的提示词案例：一个 Three.js 3D 展示、两个偏 CSS 丝滑动画，一个偏 UI 交互。每张卡都给出真实视觉样式和完整提示词。",
+  "showcaseBody": "这里展示五个可直接复制的提示词案例：一个 Three.js 3D 展示、一个内容体验案例、两个偏 CSS 丝滑动画，一个偏 UI 交互。每张卡都给出真实视觉样式和完整提示词。",
   "showcaseKicker": "Case Showcase",
   "showcaseTitle": "优秀案例不只看文字，也要看它生成什么样的体验。",
   "submitCase": "提交你的案例",

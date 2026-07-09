@@ -140,9 +140,19 @@
       "prompt": "Create a refined responsive Three.js case-study module in React + TypeScript for a stylized canine brain atlas. Build the model procedurally without external assets: separate left/right cortex lobes, frontal cortex pads, olfactory bulbs, hippocampus forms, cerebellum, and brain stem with distinct physical materials; add dense TubeGeometry cortical grooves across both hemispheres, cerebellar folds, olfactory tracts, neural connection bundles, and a subtle dog skull silhouette with ear contours. Scatter at least 40 emissive neural nodes across the lobes and animate independent pulses over time while the brain slowly rotates and floats. Use PerspectiveCamera, warm key light, green rim light, ambient fill, antialiasing, SRGB output, device-pixel-ratio clamping, ResizeObserver resizing, and complete cleanup of renderer, geometries, and materials on unmount. Overlay compact labels for Frontal cortex, Olfactory bulb, Hippocampus, and Cerebellum. The result should feel like a premium science-museum neural atlas, readable on desktop and mobile.",
       "tag": "Three.js 3D",
       "title": "Dog Brain 3D Model Showcase"
+    },
+    "textTruncate": {
+      "acceptance": "The preview must show single-line ellipsis, multi-line clamp, middle truncation, gradient fade, wrapping tags, and expandable full copy; each strategy must define its use case, and long Chinese/English strings, filenames, and mobile widths must not break the layout.",
+      "bestFor": "Content cards, file lists, product titles, notification centers, data tables, mobile feeds, and admin interfaces.",
+      "body": "Compare multiple text truncation strategies so long titles, descriptions, filenames, and tags stay readable across containers.",
+      "ingredients": "Single-line text-overflow, two-line line-clamp, middle truncation with suffix preservation, gradient fade, wrapping tags, expandable detail, title/aria-label full text, and responsive breakpoints.",
+      "principle": "This case treats truncation as a content decision, not a universal crop. Titles use one-line ellipsis to keep lists aligned, descriptions use a two-line clamp for semantic density, filenames use middle truncation to preserve extensions, editorial copy can fade for a softer edge, tag groups wrap, and important content keeps an expandable route plus accessible full text.",
+      "prompt": "Create a responsive copy truncation showcase in React + TypeScript + Tailwind CSS. Build a compact UI lab that compares at least six text-overflow strategies: single-line ellipsis for titles, two-line line-clamp for descriptions, middle truncation that preserves a filename extension or identifier suffix, gradient fade for editorial copy, wrapping chips for tag groups, and an expandable details pattern for full text. Use realistic long Chinese and English copy, file names, product titles, and status labels. Keep the layout readable from mobile to desktop, use min-width: 0 wherever flex/grid truncation needs it, preserve full text through title or aria-label attributes, and explain which strategy is best for each content type. Add subtle visual hierarchy, clear focus states, and no JavaScript measurement unless absolutely necessary.",
+      "tag": "Content UX",
+      "title": "Copy Truncation Strategy Lab"
     }
   },
-  "showcaseBody": "Here are four copy-ready prompt cases: one Three.js 3D showcase, two for silky CSS animation, and one for UI interaction. Each card includes a concrete visual treatment and the full prompt.",
+  "showcaseBody": "Here are five copy-ready prompt cases: one Three.js 3D showcase, one content UX case, two for silky CSS animation, and one for UI interaction. Each card includes a concrete visual treatment and the full prompt.",
   "showcaseKicker": "Case Showcase",
   "showcaseTitle": "Excellent cases should show the experience, not just the text.",
   "submitCase": "Submit Your Case",

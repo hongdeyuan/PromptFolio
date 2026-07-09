@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type CSSProperties, type PointerEvent } from 'react';
 import * as THREE from 'three';
-import { ArrowUpRight, BadgeCheck, BookOpenText, BrainCircuit, Check, Clipboard, Gem, Globe2, Layers3, MousePointer2, Orbit, Sparkles, WandSparkles } from 'lucide-react';
+import { ArrowUpRight, BadgeCheck, BookOpenText, BrainCircuit, Check, ChevronsLeftRightEllipsis, Clipboard, Gem, Globe2, Layers3, MousePointer2, Orbit, Sparkles, WandSparkles } from 'lucide-react';
 import type { TFunction } from 'i18next';
 import { useTranslation } from 'react-i18next';
 
@@ -29,6 +29,7 @@ const metrics = [
 ] as const;
 const showcaseCases = [
   { id: 'dogBrain', icon: BrainCircuit, promptKey: 'showcase.dogBrain.prompt' },
+  { id: 'textTruncate', icon: ChevronsLeftRightEllipsis, promptKey: 'showcase.textTruncate.prompt' },
   { id: 'aurora', icon: WandSparkles, promptKey: 'showcase.aurora.prompt' },
   { id: 'orbit', icon: Orbit, promptKey: 'showcase.orbit.prompt' },
   { id: 'glass', icon: Gem, promptKey: 'showcase.glass.prompt' },
@@ -185,7 +186,7 @@ function OverviewPage({ t }: { t: TFunction }) {
 
       <section className="mt-20 grid gap-5 md:grid-cols-3">
         {[
-          ['04', 'overview.stats.cases'],
+          ['05', 'overview.stats.cases'],
           ['05', 'overview.stats.criteria'],
           ['100%', 'overview.stats.copyReady'],
         ].map(([value, label]) => (
@@ -266,7 +267,7 @@ function CaseCard({ copiedCase, copyPrompt, item, t }: { copiedCase: string | nu
 
   return (
     <article className="overflow-hidden rounded-[2rem] border border-[#191611]/10 bg-[#f3efe6] shadow-[0_28px_80px_rgba(25,22,17,0.12)]">
-      <div className={`relative min-h-[320px] overflow-hidden p-6 ${item.id === 'orbit' ? 'bg-[#e8dcc8]' : item.id === 'dogBrain' ? 'bg-[#0b1610]' : 'bg-[#080914]'}`}>
+      <div className={`relative min-h-[320px] overflow-hidden p-6 ${item.id === 'orbit' ? 'bg-[#e8dcc8]' : item.id === 'dogBrain' ? 'bg-[#0b1610]' : item.id === 'textTruncate' ? 'bg-[#f7eddc]' : 'bg-[#080914]'}`}>
         <CasePreview caseId={item.id} />
       </div>
       <div className="p-6">
@@ -573,6 +574,51 @@ function CasePreview({ caseId, large = false }: { caseId: ShowcaseCaseId; large?
     );
   }
 
+  if (caseId === 'textTruncate') {
+    return (
+      <div className={`${large ? 'min-h-[420px]' : 'min-h-[268px]'} truncate-stage relative overflow-hidden rounded-[1.5rem] bg-[radial-gradient(circle_at_12%_18%,rgba(236,119,68,0.24),transparent_30%),radial-gradient(circle_at_86%_78%,rgba(36,72,56,0.22),transparent_32%),linear-gradient(135deg,#fff8ec,#f0dfc6)] p-4 text-[#191611] sm:p-6`}>
+        <div className="absolute -right-14 -top-16 h-44 w-44 rounded-full border border-[#191611]/10" />
+        <div className="absolute -bottom-20 left-8 h-56 w-56 rounded-full bg-[#e4632b]/10 blur-2xl" />
+        <div className="relative mx-auto flex h-full max-w-[35rem] flex-col justify-center gap-3">
+          <div className="flex items-center justify-between gap-3">
+            <span className="rounded-full bg-[#191611] px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#fff8ec]">Copy Fit Lab</span>
+            <span className="rounded-full border border-[#191611]/10 bg-white/60 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#244838]">6 patterns</span>
+          </div>
+          <div className="grid gap-3 md:grid-cols-[0.9fr_1.1fr]">
+            <div className="rounded-[1.4rem] border border-[#191611]/10 bg-white/70 p-4 shadow-xl shadow-[#191611]/5 backdrop-blur">
+              <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#e4632b]">Single line</p>
+              <p className="mt-3 truncate rounded-xl bg-[#191611]/5 px-3 py-2 text-sm font-bold">Enterprise workspace automation approval pipeline</p>
+              <p className="mt-4 text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#e4632b]">Middle cut</p>
+              <div className="mt-3 flex min-w-0 items-center rounded-xl bg-[#244838]/8 px-3 py-2 text-sm font-bold text-[#244838]">
+                <span className="min-w-0 truncate">customer-retention-dashboard</span>
+                <span className="shrink-0 text-[#e4632b]">...</span>
+                <span className="shrink-0">.tsx</span>
+              </div>
+            </div>
+            <div className="rounded-[1.4rem] border border-[#191611]/10 bg-[#191611] p-4 text-white shadow-2xl shadow-[#191611]/16">
+              <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#f0b37e]">Two-line clamp</p>
+              <p className="truncate-clamp mt-3 text-lg font-extrabold leading-6 tracking-[-0.04em]">Turn every overflowing product description into a predictable preview without hiding price, status, or primary action.</p>
+              <div className="truncate-fade relative mt-4 max-h-16 overflow-hidden rounded-2xl border border-white/10 bg-white/10 p-3 text-xs leading-5 text-white/72">
+                Long editorial cards can fade at the edge when the exact cutoff should feel softer than a hard ellipsis in marketing layouts.
+              </div>
+            </div>
+          </div>
+          <div className="grid gap-3 md:grid-cols-[1.15fr_0.85fr]">
+            <div className="flex flex-wrap gap-2 rounded-[1.4rem] border border-[#191611]/10 bg-white/60 p-3 backdrop-blur">
+              {['Responsive tags wrap cleanly', 'Priority label stays', 'Overflow collapses'].map((label) => (
+                <span className="max-w-full truncate rounded-full bg-[#244838] px-3 py-2 text-[11px] font-bold text-[#f3efe6]" key={label}>{label}</span>
+              ))}
+            </div>
+            <details className="truncate-details rounded-[1.4rem] border border-[#191611]/10 bg-[#e4632b] p-3 text-white shadow-xl shadow-[#e4632b]/18" open={large}>
+              <summary className="cursor-pointer text-[11px] font-extrabold uppercase tracking-[0.18em]">Expandable</summary>
+              <p className="mt-2 text-xs leading-5 text-white/80">Reveal the complete copy on demand while preserving a compact default card.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (caseId === 'glass') {
     return (
       <div
@@ -672,7 +718,7 @@ function CaseDetailPage({ caseId, copiedCase, copyPrompt, icon: Icon, prompt, t 
           </div>
         </div>
         <div className="overflow-hidden rounded-[2rem] border border-[#191611]/10 bg-[#fffaf0] shadow-[0_28px_80px_rgba(25,22,17,0.12)]">
-          <div className={`p-6 ${caseId === 'orbit' ? 'bg-[#e8dcc8]' : caseId === 'dogBrain' ? 'bg-[#0b1610]' : 'bg-[#080914]'}`}>
+          <div className={`p-6 ${caseId === 'orbit' ? 'bg-[#e8dcc8]' : caseId === 'dogBrain' ? 'bg-[#0b1610]' : caseId === 'textTruncate' ? 'bg-[#f7eddc]' : 'bg-[#080914]'}`}>
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-white/70 mix-blend-difference">{t('detail.previewLabel')}</p>
             <CasePreview caseId={caseId} large />
           </div>
